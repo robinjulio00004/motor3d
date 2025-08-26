@@ -1,0 +1,37 @@
+<html lang="en-US">
+	<head>
+	<meta charset="utf-8"/> 
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    	<script src="aframe-v1.6.0.min.js"></script>
+    	<script src="aframe-ar.js"></script>
+	<script src="animation-mixer.js"></script>
+	<script src="aframe-extras.js"></script>
+	<script src="orbit-controls.js"></script>
+	<script src="ccplane.js"></script>
+ </head>
+  
+  <body>
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;antialias: true" xr-mode-ui="enabled: true">
+      
+      <a-assets>
+        <a-asset-item id="motor" src="motor_brush.glb"></a-asset-item>
+	<a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
+      </a-assets>
+        
+        
+      <a-entity gltf-model="#bowser" position="2 0 -1" scale="0.15 0.15 0.15"></a-entity>
+      <a-entity gltf-model="#motor" position="0 0 0" scale="0.5 0.5 0.5" ccplane="Direction:y-axis" animation-mixer="clip: motor_anim;timeScale:0.1;"></a-entity>
+      <a-entity mi_ccplane="Direction:y-axis"></a-entity>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="15" height="15" color="#a4b6c9" shadow="receive: true"></a-plane>
+      <!--<a-circle id="ground" radius="20" rotation="-90 0 0" shadow="receive: true"></a-circle>-->
+      <a-light type="directional" color="white" intensity="0.6" position="0 0 1" light="castShadow:true;"></a-light>
+      <a-light type="directional" color="white" intensity="0.6" position="0 0 -1" light="castShadow:true;"></a-light>
+      <a-light type="directional" color="white" intensity="1.6" position="0 6 0" light="castShadow:true;"></a-light>
+      
+        <a-entity camera rotation="0 0 0" look-controls="enabled: true" orbit-controls="target: 0 0 0; minDistance: 80; maxDistance: 80; initialPosition: 1 2 3; rotateSpeed: 1; autoRotate:true;">
+        </a-entity>
+    </a-scene>
+</body>
+</html>
