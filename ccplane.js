@@ -68,7 +68,8 @@ AFRAME.registerComponent('mi_ccplane',{
         }
     clippingPlane = new THREE.Plane(new THREE.Vector3(0,eje,0),offset); 
     clippingPlane.setFromNormalAndCoplanarPoint(pnormal,pcoplanar);
-    const planeHelper = new THREE.PlaneHelper(clippingPlane, 50, 0xff00ff); 
+    const planeHelper = new THREE.PlaneHelper(clippingPlane, 5, 0xff00ff); 
     this.el.object3D.add(planeHelper);
   }
+
 });
