@@ -17,12 +17,9 @@
       
       <a-assets>
         <a-asset-item id="motor" src="motor_brush.glb"></a-asset-item>
-	<a-asset-item id="bowser" src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"></a-asset-item>
       </a-assets>
         
-        
-      <a-entity gltf-model="#bowser" position="2 0 -1" scale="0.15 0.15 0.15"></a-entity>
-      <a-entity gltf-model="#motor" position="0 0 0" scale="0.5 0.5 0.5" ccplane="Direction:y-axis" animation-mixer="clip: motor_anim;timeScale:0.1;"></a-entity>
+      <a-entity gltf-model="#motor" position="0 0 0" scale="1 1 1" ccplane="Direction:y-axis" animation-mixer="clip: motor_anim;timeScale:0.1;"></a-entity>
       <a-entity mi_ccplane="Direction:y-axis"></a-entity>
       <a-plane position="0 0 0" rotation="-90 0 0" width="15" height="15" color="#a4b6c9" shadow="receive: true"></a-plane>
       <!--<a-circle id="ground" radius="20" rotation="-90 0 0" shadow="receive: true"></a-circle>-->
@@ -34,4 +31,5 @@
         </a-entity>
     </a-scene>
 </body>
+
 </html>
