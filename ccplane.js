@@ -1,4 +1,4 @@
-let eje=1,offset=0;
+let eje=1,offset=0,erender=false;
 let renderer = document.querySelector("a-scene").renderer;
 
 AFRAME.registerComponent('ccplane', {
@@ -39,7 +39,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });//fin eventListener
-				renderer.localClippingEnabled = true;
+				renderer.localClippingEnabled = erender;
     },//fin init function
 });
 
@@ -75,3 +75,4 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
