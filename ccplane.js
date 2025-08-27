@@ -1,21 +1,5 @@
 let eje=1,offset=0,eboton=false;
 let renderer = document.querySelector("a-scene").renderer;
-
-		function activacion()
-{
-	eboton=!eboton;
-	if(eboton===true)
-	{
-		
-        renderer.localClippingEnabled = true;
-		document.getElementById("boton").value="Vista sección ON";
-	}else
-	{
-		
-        renderer.localClippingEnabled = false;
-		document.getElementById("boton").value="Vista sección OFF";
-	}        
-}
 	
 AFRAME.registerComponent('ccplane', {
       schema: {
@@ -54,6 +38,21 @@ AFRAME.registerComponent('ccplane', {
                     })//fin function node
                 });
         //renderer.localClippingEnabled = true;
+		function activacion()
+{
+	eboton=!eboton;
+	if(eboton===true)
+	{
+		
+        renderer.localClippingEnabled = true;
+		document.getElementById("boton").value="Vista sección ON";
+	}else
+	{
+		
+        renderer.localClippingEnabled = false;
+		document.getElementById("boton").value="Vista sección OFF";
+	}        
+}
     },
 });
 
@@ -90,6 +89,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
