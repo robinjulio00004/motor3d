@@ -1,4 +1,4 @@
-let eje=1,offset=0,erender=true;
+let eje=1,offset=0;
 let renderer = document.querySelector("a-scene").renderer;
 
 AFRAME.registerComponent('ccplane', {
@@ -13,6 +13,7 @@ AFRAME.registerComponent('ccplane', {
       const localPlanes = [];
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
+		let act_render=false;
 	  //const view = this.el.getAttribute("ccplane").planeview;
 		
       if(clipDir=="x-axis"){
@@ -39,7 +40,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });//fin eventListener
-				renderer.localClippingEnabled = erender;
+				renderer.localClippingEnabled = act_render;
     },//fin init function
 });
 
@@ -75,5 +76,6 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
