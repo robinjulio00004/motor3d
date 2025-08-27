@@ -6,11 +6,11 @@ mi_boton.addEventListener('click',function(){
 		eboton=!eboton;
 	if(eboton===true)
 	{    
-		
+		document.getElementById("status").innerHTML = "ON";
 		mi_boton.value="Vista sección ON";
 	}else
 	{ 
-		
+		document.getElementById("status").innerHTML = "OFF";
 		mi_boton.value="Vista sección OFF";
 	}
 });
@@ -97,6 +97,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
