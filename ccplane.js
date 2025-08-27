@@ -1,30 +1,10 @@
-let eje=1,offset=0,eboton=false,aclip=false;
+let eje=1,offset=0,eboton=false;
 let renderer = document.querySelector("a-scene").renderer;
-let mi_boton=document.getElementById("boton");
-
-		//const mi_boton=document.querySelector(".button");
-		//const mi_boton=document.querySelector("#boton");
-		//let mi_boton=document.getElementById("boton");
-		
-function activacion(){
-		eboton=!eboton;
-	if(eboton===true)
-	{    
-		document.getElementById("status").innerHTML = "ON";
-		mi_boton.value="Vista sección ON";
-	}else
-	{ 
-		document.getElementById("status").innerHTML = "OFF";
-		mi_boton.value="Vista sección OFF";
-	}
-}
-mi_boton.addEventListener('click',activacion);
-
 
 AFRAME.registerComponent('ccplane', {
       schema: {
         Direction: { type: 'string', default: 'x-axis' },
-		planeview: { type: 'boolean',default:'false' },
+		planeview: { type: 'boolean',default:'false' }
     },
 
     init: function () {//Se llama una vez cuando el componente se inicializa por primera vez y se asocia a una entidad.eventos persisten
@@ -105,6 +85,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
