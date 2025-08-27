@@ -15,7 +15,7 @@ mi_boton.addEventListener('click',function(){
 		document.getElementById("status").innerHTML = "OFF";
 		mi_boton.value="Vista sección OFF";
 	}
-});
+},true);
 
 
 AFRAME.registerComponent('ccplane', {
@@ -100,6 +100,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
