@@ -13,7 +13,7 @@ AFRAME.registerComponent('ccplane', {
       const localPlanes = [];
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
-		let act_render=false;
+		let act_render=true;
 	  //const view = this.el.getAttribute("ccplane").planeview;
 		
       if(clipDir=="x-axis"){
@@ -76,6 +76,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
