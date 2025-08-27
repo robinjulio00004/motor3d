@@ -1,10 +1,10 @@
-let eje=1,offset=0,eboton=false;
+let eje=1,offset=0;
 let renderer = document.querySelector("a-scene").renderer;
 
 AFRAME.registerComponent('ccplane', {
       schema: {
-        Direction: { type: 'string', default: 'x-axis' },
-		planeview: { type: 'boolean',default:'false' }
+        Direction: { type: 'string', default: 'x-axis' }
+		//planeview: { type: 'boolean',default:'false' }
     },
 
     init: function () {//Se llama una vez cuando el componente se inicializa por primera vez y se asocia a una entidad.eventos persisten
@@ -13,7 +13,7 @@ AFRAME.registerComponent('ccplane', {
       const localPlanes = [];
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
-	  const view = this.el.getAttribute("ccplane").planeview;
+	  //const view = this.el.getAttribute("ccplane").planeview;
 		
       if(clipDir=="x-axis"){
         localPlane = new THREE.Plane(new THREE.Vector3(eje,0,0),offset);  
@@ -39,18 +39,8 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });//fin eventListener
-				renderer.localClippingEnabled = view;
+				renderer.localClippingEnabled = true;
     },//fin init function
-	//tick:function(){
-		//if(aclip===true)
-		//{
-			//document.getElementById("status").innerHTML = aclip;
-			//renderer.localClippingEnabled = true;
-		//}else{
-			//document.getElementById("status").innerHTML = aclip;
-			//renderer.localClippingEnabled = false;
-		//}
-	//}
 });
 
 AFRAME.registerComponent('mi_ccplane',{
@@ -85,23 +75,3 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
