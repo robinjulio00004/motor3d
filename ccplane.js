@@ -55,6 +55,7 @@ AFRAME.registerComponent('ccplane', {
 }
     },
 });
+renderer.localClippingEnabled = true;
 
 AFRAME.registerComponent('mi_ccplane',{
         schema: {
@@ -89,6 +90,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
