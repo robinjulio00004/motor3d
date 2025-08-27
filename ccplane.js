@@ -49,18 +49,18 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-				//renderer.localClippingEnabled = false;
+				renderer.localClippingEnabled = aclip;
     },
-	tick:function(){
-		if(aclip===true)
-		{
-			document.getElementById("status").innerHTML = aclip;
-			renderer.localClippingEnabled = true;
-		}else{
-			document.getElementById("status").innerHTML = aclip;
-			renderer.localClippingEnabled = false;
-		}
-	}
+	//tick:function(){
+		//if(aclip===true)
+		//{
+			//document.getElementById("status").innerHTML = aclip;
+			//renderer.localClippingEnabled = true;
+		//}else{
+			//document.getElementById("status").innerHTML = aclip;
+			//renderer.localClippingEnabled = false;
+		//}
+	//}
 });
 
 AFRAME.registerComponent('mi_ccplane',{
@@ -95,5 +95,6 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
