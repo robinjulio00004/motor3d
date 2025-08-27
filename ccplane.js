@@ -1,6 +1,18 @@
-let eje=1,offset=0,eboton=false;
+let eje=1,offset=0,eboton=false,aclip=false;
 let renderer = document.querySelector("a-scene").renderer;
-	
+function activacion()
+{
+	eboton=!eboton;
+	if(eboton===true)
+	{    
+		aclip=true;
+		document.getElementById("boton").value="Vista sección ON";
+	}else
+	{ 
+		aclip=false;
+		document.getElementById("boton").value="Vista sección OFF";
+	}        
+}
 AFRAME.registerComponent('ccplane', {
       schema: {
         Direction: { type: 'string', default: 'x-axis' }
@@ -37,25 +49,14 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-        //renderer.localClippingEnabled = true;
-		function activacion()
-{
-	eboton=!eboton;
-	if(eboton===true)
-	{
-		
-        //renderer.localClippingEnabled = true;
-		document.getElementById("boton").value="Vista sección ON";
-	}else
-	{
-		
-        //renderer.localClippingEnabled = false;
-		document.getElementById("boton").value="Vista sección OFF";
-	}        
-}
+		if(aclip===true)
+		{
+			renderer.localClippingEnabled = true;
+		}else{
+			renderer.localClippingEnabled = false;
+		}
     },
 });
-renderer.localClippingEnabled = true;
 
 AFRAME.registerComponent('mi_ccplane',{
         schema: {
@@ -90,6 +91,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
