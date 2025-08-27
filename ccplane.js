@@ -51,7 +51,7 @@ AFRAME.registerComponent('ccplane', {
                 });
 				renderer.localClippingEnabled = false;
     },
-	update:function(){
+	tick:function(){
 		if(aclip===true)
 		{
 			renderer.localClippingEnabled = true;
@@ -94,6 +94,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
