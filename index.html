@@ -9,7 +9,7 @@
 	<script src="animation-mixer.js"></script>
 	<script src="aframe-extras.js"></script>
 	<script src="orbit-controls.js"></script>
-	<script src="ccplane.js"></script>
+	
 	<link rel="stylesheet" href="styles.css">
 	
  </head>
@@ -38,6 +38,7 @@
         </a-entity>
     </a-scene>
 </body>
+	<script src="ccplane.js"></script>
 	<script>
 		let eboton=false;
 		//let renderer = document.querySelector("a-scene").renderer;
@@ -47,7 +48,7 @@
 	if(eboton===true)
 	{
 		//renderer = document.querySelector("a-scene").renderer;
-        //renderer.localClippingEnabled = true;
+        renderer.localClippingEnabled = true;
 		document.getElementById("boton").value="Vista sección ON";
 	}else
 	{
@@ -58,6 +59,7 @@
 }
 	</script>
 </html>
+
 
 
 
