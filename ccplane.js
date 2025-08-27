@@ -49,7 +49,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-		
+				renderer.localClippingEnabled = false;
     },
 	update:function(){
 		if(aclip===true)
@@ -94,6 +94,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
