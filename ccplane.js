@@ -54,8 +54,10 @@ AFRAME.registerComponent('ccplane', {
 	tick:function(){
 		if(aclip===true)
 		{
+			document.getElementById("status").textContent = "activo";
 			renderer.localClippingEnabled = true;
 		}else{
+			document.getElementById("status").textContent = "inactivo";
 			renderer.localClippingEnabled = false;
 		}
 	}
@@ -93,3 +95,4 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
