@@ -44,12 +44,12 @@ AFRAME.registerComponent('ccplane', {
 	if(eboton===true)
 	{
 		
-        renderer.localClippingEnabled = true;
+        //renderer.localClippingEnabled = true;
 		document.getElementById("boton").value="Vista sección ON";
 	}else
 	{
 		
-        renderer.localClippingEnabled = false;
+        //renderer.localClippingEnabled = false;
 		document.getElementById("boton").value="Vista sección OFF";
 	}        
 }
@@ -89,6 +89,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
