@@ -18,7 +18,7 @@ function activacion(){
 		mi_boton.value="Vista sección OFF";
 	}
 }
-mi_boton.addEventListener('click',activacion);
+
 
 AFRAME.registerComponent('ccplane', {
       schema: {
@@ -32,7 +32,7 @@ AFRAME.registerComponent('ccplane', {
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
 
-		
+		mi_boton.addEventListener('click',activacion);
       if(clipDir=="x-axis"){
         localPlane = new THREE.Plane(new THREE.Vector3(eje,0,0),offset);  
         }else if(clipDir=="y-axis"){
@@ -103,6 +103,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
