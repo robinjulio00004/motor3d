@@ -36,7 +36,7 @@ AFRAME.registerComponent('ccplane', {
                     })//fin function node
                 });
         const renderer = document.querySelector("a-scene").renderer;
-        renderer.localClippingEnabled = true;
+        renderer.localClippingEnabled = false;
     },
 });
 
@@ -73,4 +73,5 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
