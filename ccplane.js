@@ -6,7 +6,7 @@ let mi_boton=document.getElementById("boton");
 		//const mi_boton=document.querySelector("#boton");
 		//let mi_boton=document.getElementById("boton");
 		
-activacion(){
+function activacion(){
 		eboton=!eboton;
 	if(eboton===true)
 	{    
@@ -17,7 +17,7 @@ activacion(){
 		document.getElementById("status").innerHTML = "OFF";
 		mi_boton.value="Vista sección OFF";
 	}
-};
+}
 mi_boton.addEventListener('click',activacion);
 
 AFRAME.registerComponent('ccplane', {
@@ -103,6 +103,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
