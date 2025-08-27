@@ -1,5 +1,22 @@
-let eje=1,offset=0;
+let eje=1,offset=0,eboton=false;
 let renderer = document.querySelector("a-scene").renderer;
+
+		function activacion()
+{
+	eboton=!eboton;
+	if(eboton===true)
+	{
+		
+        //renderer.localClippingEnabled = true;
+		document.getElementById("boton").value="Vista sección ON";
+	}else
+	{
+		
+        //renderer.localClippingEnabled = false;
+		document.getElementById("boton").value="Vista sección OFF";
+	}        
+}
+	
 AFRAME.registerComponent('ccplane', {
       schema: {
         Direction: { type: 'string', default: 'x-axis' }
@@ -73,6 +90,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
