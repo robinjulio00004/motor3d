@@ -1,18 +1,20 @@
 let eje=1,offset=0,eboton=false,aclip=false;
 let renderer = document.querySelector("a-scene").renderer;
-function activacion()
-{
-	eboton=!eboton;
+
+const mi_boton=document.getElementById("boton");
+mi_boton.addEventListener('click',activacion(){
+		eboton=!eboton;
 	if(eboton===true)
 	{    
-		aclip=true;
-		document.getElementById("boton").value="Vista sección ON";
+		
+		mi_boton.value="Vista sección ON";
 	}else
 	{ 
-		aclip=false;
-		document.getElementById("boton").value="Vista sección OFF";
-	}        
-}
+		
+		mi_boton.value="Vista sección OFF";
+	}
+});
+
 AFRAME.registerComponent('ccplane', {
       schema: {
         Direction: { type: 'string', default: 'x-axis' }
@@ -49,7 +51,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-				renderer.localClippingEnabled = aclip;
+				renderer.localClippingEnabled = true;
     },
 	//tick:function(){
 		//if(aclip===true)
@@ -95,6 +97,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
