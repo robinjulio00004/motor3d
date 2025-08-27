@@ -5,6 +5,20 @@ let mi_boton=document.getElementById("boton");
 		//const mi_boton=document.querySelector(".button");
 		//const mi_boton=document.querySelector("#boton");
 		//let mi_boton=document.getElementById("boton");
+		
+activacion(){
+		eboton=!eboton;
+	if(eboton===true)
+	{    
+		document.getElementById("status").innerHTML = "ON";
+		mi_boton.value="Vista sección ON";
+	}else
+	{ 
+		document.getElementById("status").innerHTML = "OFF";
+		mi_boton.value="Vista sección OFF";
+	}
+};
+mi_boton.addEventListener('click',activacion);
 
 AFRAME.registerComponent('ccplane', {
       schema: {
@@ -18,18 +32,6 @@ AFRAME.registerComponent('ccplane', {
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
 
-		mi_boton.addEventListener('click',function(){
-		eboton=!eboton;
-	if(eboton===true)
-	{    
-		document.getElementById("status").innerHTML = "ON";
-		mi_boton.value="Vista sección ON";
-	}else
-	{ 
-		document.getElementById("status").innerHTML = "OFF";
-		mi_boton.value="Vista sección OFF";
-	}
-});
 		
       if(clipDir=="x-axis"){
         localPlane = new THREE.Plane(new THREE.Vector3(eje,0,0),offset);  
@@ -101,6 +103,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
