@@ -1,4 +1,4 @@
-let eje=1,offset=0,erender=false;
+let eje=1,offset=0,erender=true;
 let renderer = document.querySelector("a-scene").renderer;
 
 AFRAME.registerComponent('ccplane', {
@@ -75,4 +75,5 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
