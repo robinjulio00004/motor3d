@@ -35,7 +35,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-        const renderer = document.querySelector("a-scene").renderer;
+        let renderer = document.querySelector("a-scene").renderer;
         renderer.localClippingEnabled = false;
     },
 });
@@ -73,5 +73,6 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
