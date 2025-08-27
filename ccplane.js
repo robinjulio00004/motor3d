@@ -4,7 +4,7 @@ let renderer = document.querySelector("a-scene").renderer;
 AFRAME.registerComponent('ccplane', {
       schema: {
         Direction: { type: 'string', default: 'x-axis' },
-		planeview: { type: 'boolean',default:'false' }
+		planeview: { type: 'boolean',default:'true' }
     },
 
     init: function () {//Se llama una vez cuando el componente se inicializa por primera vez y se asocia a una entidad.eventos persisten
@@ -76,6 +76,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
