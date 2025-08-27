@@ -7,12 +7,12 @@ let renderer = document.querySelector("a-scene").renderer;
 	if(eboton===true)
 	{
 		
-        //renderer.localClippingEnabled = true;
+        renderer.localClippingEnabled = true;
 		document.getElementById("boton").value="Vista sección ON";
 	}else
 	{
 		
-        //renderer.localClippingEnabled = false;
+        renderer.localClippingEnabled = false;
 		document.getElementById("boton").value="Vista sección OFF";
 	}        
 }
@@ -53,7 +53,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-        renderer.localClippingEnabled = true;
+        //renderer.localClippingEnabled = true;
     },
 });
 
@@ -90,6 +90,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
