@@ -1,9 +1,10 @@
 let eje=1,offset=0,eboton=false,aclip=false;
 let renderer = document.querySelector("a-scene").renderer;
+let mi_boton=document.getElementById("boton");
 
 		//const mi_boton=document.querySelector(".button");
 		//const mi_boton=document.querySelector("#boton");
-		let mi_boton=document.getElementById("boton");
+		//let mi_boton=document.getElementById("boton");
 mi_boton.addEventListener('click',function(){
 		eboton=!eboton;
 	if(eboton===true)
@@ -100,6 +101,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
