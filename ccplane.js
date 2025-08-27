@@ -1,4 +1,5 @@
 let eje=1,offset=0;
+let renderer = document.querySelector("a-scene").renderer;
 AFRAME.registerComponent('ccplane', {
       schema: {
         Direction: { type: 'string', default: 'x-axis' }
@@ -35,7 +36,6 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-        let renderer = document.querySelector("a-scene").renderer;
         renderer.localClippingEnabled = false;
     },
 });
@@ -73,6 +73,7 @@ AFRAME.registerComponent('mi_ccplane',{
   }
 
 });
+
 
 
 
