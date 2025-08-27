@@ -13,7 +13,8 @@
  </head>
   
   <body>
-    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true">
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true"
+		reflection="directionalLight:a-light#dirlight;">
       
       <a-assets>
         <a-asset-item id="motor" src="motor_brush.glb"></a-asset-item>
@@ -26,6 +27,7 @@
       <a-light type="directional" color="white" intensity="0.6" position="0 0 1" light="castShadow:true;"></a-light>
       <a-light type="directional" color="white" intensity="0.6" position="0 0 -1" light="castShadow:true;"></a-light>
       <a-light type="directional" color="white" intensity="1.6" position="0 6 0" light="castShadow:true;"></a-light>
+	  <a-light id="dirlight" intensity="1" light="castShadow:true;type:directional" position="0 3 0"></a-light>
       
         <a-entity camera look-controls="enabled: false" orbit-controls="target: 0 0 0; minDistance: 13; maxDistance: 13; initialPosition: 1 2 3; rotateSpeed: 0.5;">
         </a-entity>
@@ -33,6 +35,7 @@
 </body>
 
 </html>
+
 
 
 
