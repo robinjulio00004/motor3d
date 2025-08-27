@@ -50,9 +50,9 @@ AFRAME.registerComponent('ccplane', {
                             node.castShadow = true;
                         }//fin node is mesh
                     })//fin function node
-                });
+                });//fin eventListener
 				renderer.localClippingEnabled = true;
-    },
+    },//fin init function
 	//tick:function(){
 		//if(aclip===true)
 		//{
@@ -97,6 +97,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
