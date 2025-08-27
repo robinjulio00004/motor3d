@@ -39,22 +39,24 @@
 </body>
 	<script>
 		let eboton=false;
+		let renderer = document.querySelector("a-scene").renderer;
 		function bfunction()
 {
 	eboton=!boton;
 	if(eboton===true)
 	{
-		//let renderer = document.querySelector("a-scene").renderer;
+		//renderer = document.querySelector("a-scene").renderer;
         renderer.localClippingEnabled = true;
 		document.getElementById("boton").value="Vista sección ON";
 	}else{
-		//let renderer = document.querySelector("a-scene").renderer;
-        renderer.localClippingEnabled = true;
+		//renderer = document.querySelector("a-scene").renderer;
+        renderer.localClippingEnabled = false;
 		document.getElementById("boton").value="Vista sección OFF";
 	}        
 }
 	</script>
 </html>
+
 
 
 
