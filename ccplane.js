@@ -18,11 +18,13 @@ function activacion(){
 		mi_boton.value="Vista sección OFF";
 	}
 }
+mi_boton.addEventListener('click',activacion);
 
 
 AFRAME.registerComponent('ccplane', {
       schema: {
-        Direction: { type: 'string', default: 'x-axis' }
+        Direction: { type: 'string', default: 'x-axis' },
+		planeview: { type: 'boolean',default:'false' },
     },
 
     init: function () {//Se llama una vez cuando el componente se inicializa por primera vez y se asocia a una entidad.eventos persisten
@@ -31,8 +33,8 @@ AFRAME.registerComponent('ccplane', {
       const localPlanes = [];
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
-
-		mi_boton.addEventListener('click',activacion);
+	  const view = this.el.getAttribute("ccplane").planeview;
+		
       if(clipDir=="x-axis"){
         localPlane = new THREE.Plane(new THREE.Vector3(eje,0,0),offset);  
         }else if(clipDir=="y-axis"){
@@ -57,7 +59,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });//fin eventListener
-				renderer.localClippingEnabled = true;
+				renderer.localClippingEnabled = view;
     },//fin init function
 	//tick:function(){
 		//if(aclip===true)
@@ -103,6 +105,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
