@@ -43,7 +43,29 @@
     </a-scene>
 </body>
 <script src="ccplane.js"></script>
+	<script>
+	let mi_boton=document.getElementById("boton");
+
+		//const mi_boton=document.querySelector(".button");
+		//const mi_boton=document.querySelector("#boton");
+		//let mi_boton=document.getElementById("boton");
+		
+function activacion(){
+		eboton=!eboton;
+	if(eboton===true)
+	{    
+		document.getElementById("status").innerHTML = "ON";
+		mi_boton.value="Vista sección ON";
+	}else
+	{ 
+		document.getElementById("status").innerHTML = "OFF";
+		mi_boton.value="Vista sección OFF";
+	}
+}
+mi_boton.addEventListener('click',activacion);
+</script>
 </html>
+
 
 
 
