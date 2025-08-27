@@ -20,7 +20,7 @@
     </div>
 	<div class="fmsg">
 	<div id="sistema">
-	<p>Estado <span id="status"></span></p>
+	<p>Estado <span id="status">OFF</span></p>
 	</div>
 	</div>
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true"
@@ -58,9 +58,10 @@ mi_boton.addEventListener('click',function(){
 		document.getElementById("status").innerHTML = "OFF";
 		mi_boton.value="Vista sección OFF";
 	}
-},true);
+});
 	</script>
 </html>
+
 
 
 
