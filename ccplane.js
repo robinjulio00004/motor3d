@@ -49,7 +49,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });
-				renderer.localClippingEnabled = false;
+				//renderer.localClippingEnabled = false;
     },
 	tick:function(){
 		if(aclip===true)
@@ -92,19 +92,4 @@ AFRAME.registerComponent('mi_ccplane',{
     const planeHelper = new THREE.PlaneHelper(clippingPlane, 10, 0xff00ff); 
     this.el.object3D.add(planeHelper);
   }
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
