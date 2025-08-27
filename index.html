@@ -11,6 +11,24 @@
 	<script src="orbit-controls.js"></script>
 	<script src="ccplane.js"></script>
 	<link rel="stylesheet" href="styles.css">
+	<script>
+		let eboton=false;
+		let renderer = document.querySelector("a-scene").renderer;
+		function bfunction()
+{
+	eboton=!boton;
+	if(eboton===true)
+	{
+		//renderer = document.querySelector("a-scene").renderer;
+        renderer.localClippingEnabled = true;
+		document.getElementById("boton").value="Vista sección ON";
+	}else{
+		//renderer = document.querySelector("a-scene").renderer;
+        renderer.localClippingEnabled = false;
+		document.getElementById("boton").value="Vista sección OFF";
+	}        
+}
+	</script>
  </head>
   
   <body>
@@ -37,25 +55,8 @@
         </a-entity>
     </a-scene>
 </body>
-	<script>
-		let eboton=false;
-		let renderer = document.querySelector("a-scene").renderer;
-		function bfunction()
-{
-	eboton=!boton;
-	if(eboton===true)
-	{
-		//renderer = document.querySelector("a-scene").renderer;
-        renderer.localClippingEnabled = true;
-		document.getElementById("boton").value="Vista sección ON";
-	}else{
-		//renderer = document.querySelector("a-scene").renderer;
-        renderer.localClippingEnabled = false;
-		document.getElementById("boton").value="Vista sección OFF";
-	}        
-}
-	</script>
 </html>
+
 
 
 
