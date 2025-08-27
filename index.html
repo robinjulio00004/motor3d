@@ -15,9 +15,9 @@
  </head>
   
   <body>
-	 <div class="buttons">
-		<input id="boton" type="submit" class="button" value="Vista sección OFF" onClick="bfunction()">
-	</div>
+	  <div id="botones">
+        <input id="boton" type="submit" class="button" value="Vista sección OFF" onClick="activacion()">
+    </div>
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true"
 		reflection="directionalLight:a-light#dirlight;">
       
@@ -41,7 +41,7 @@
 	<script>
 		let eboton=false;
 		//let renderer = document.querySelector("a-scene").renderer;
-		function bfunction()
+		function activacion()
 {
 	eboton=!eboton;
 	if(eboton===true)
@@ -58,6 +58,7 @@
 }
 	</script>
 </html>
+
 
 
 
