@@ -15,7 +15,7 @@
   
   <body>
 	 <div class="buttons">
- 	 <button id="boton" type="button" class="button" onclick="bfunction()">LinkedIn</button>
+		<input id="boton" type="submit" class="button" value="Vista sección OFF" onClick="bfunction()">
 	</div>
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" xr-mode-ui="enabled: true"
 		reflection="directionalLight:a-light#dirlight;">
@@ -38,12 +38,24 @@
     </a-scene>
 </body>
 	<script>
+		let eboton=false;
 		function bfunction()
 {
-	
+	eboton=!boton;
+	if(eboton===true)
+	{
+		//let renderer = document.querySelector("a-scene").renderer;
+        renderer.localClippingEnabled = true;
+		document.getElementById("boton").value="Vista sección ON";
+	}else{
+		//let renderer = document.querySelector("a-scene").renderer;
+        renderer.localClippingEnabled = true;
+		document.getElementById("boton").value="Vista sección OFF";
+	}        
 }
 	</script>
 </html>
+
 
 
 
