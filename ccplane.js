@@ -3,8 +3,7 @@ let renderer = document.querySelector("a-scene").renderer;
 
 AFRAME.registerComponent('ccplane', {
       schema: {
-        Direction: { type: 'string', default: 'x-axis' },
-		planeview: { type: 'boolean',default:'false' },
+        Direction: { type: 'string', default: 'x-axis' }
     },
 
     init: function () {//Se llama una vez cuando el componente se inicializa por primera vez y se asocia a una entidad.eventos persisten
@@ -13,8 +12,6 @@ AFRAME.registerComponent('ccplane', {
       const localPlanes = [];
       let localPlane;
       const clipDir = this.el.getAttribute("ccplane").Direction;
-		//let act_render=true;
-	  //const view = this.data.planeview;
 		
       if(clipDir=="x-axis"){
         localPlane = new THREE.Plane(new THREE.Vector3(eje,0,0),offset);  
@@ -40,7 +37,7 @@ AFRAME.registerComponent('ccplane', {
                         }//fin node is mesh
                     })//fin function node
                 });//fin eventListener
-				renderer.localClippingEnabled = this.data.planeview;
+				renderer.localClippingEnabled = true;
     },//fin init function
 });
 
@@ -76,6 +73,7 @@ AFRAME.registerComponent('mi_ccplane',{
     this.el.object3D.add(planeHelper);
   }
 });
+
 
 
 
