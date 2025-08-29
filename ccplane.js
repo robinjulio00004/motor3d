@@ -30,22 +30,21 @@ AFRAME.registerComponent('ccplane', {
               }//fin node is mesh
             })//fin function node
          });//fin event listener
-          ren.localClippingEnabled = false;
+          ren.localClippingEnabled = true;
     },
   update:function(){
     let render=document.querySelector("a-scene");
- console.log("update on");
     if(this.data.Dir=='no-axis')
       {
-       render.renderer.localClippingEnabled = false; 
-      }else if(this.data.Dir=='axis'){
        render.renderer.localClippingEnabled = true; 
+      }else if(this.data.Dir=='axis'){
+       render.renderer.localClippingEnabled = false; 
       }
- this.el.setAttribute('Dir', this.data.dir);
+ this.el.setAttribute('Dir', this.data.Dir);
   }
 });
 
-document.getElementById('boton1').addEventListener('click', function() {
+/*document.getElementById('boton1').addEventListener('click', function() {
   console.log("boton click");
   const entidad = document.getElementById('modelo3d');
   entidad.setAttribute('ccplane', 'Dir', 'no-axis' );
@@ -55,7 +54,8 @@ document.getElementById('boton2').addEventListener('click', function() {
   console.log("boton click");
   const entidad = document.getElementById('modelo3d');
   entidad.setAttribute('ccplane', 'Dir', 'axis' );
-});
+});*/
+
 
 
 
