@@ -1,84 +1,58 @@
-let eje=1,offset=0;
-let renderer = document.querySelector("a-scene").renderer;
-
 AFRAME.registerComponent('ccplane', {
       schema: {
-        Direction: { type: 'string', default: 'x-axis' }
+        Dir: { type: 'string', default: 'no-axis'}
+        //vector: { type: 'vec3', default: {x:0,y:0,z:-1}}
     },
 
-    init: function () {//Se llama una vez cuando el componente se inicializa por primera vez y se asocia a una entidad.eventos persisten
-      
+    init: function () {
       let matrix;
-      const localPlanes = [];
+      let localPlanes = [];
       let localPlane;
-      const clipDir = this.el.getAttribute("ccplane").Direction;
-		
-      if(clipDir=="x-axis"){
-        localPlane = new THREE.Plane(new THREE.Vector3(eje,0,0),offset);  
-        }else if(clipDir=="y-axis"){
-         localPlane = new THREE.Plane(new THREE.Vector3(0,eje,0),offset);  
-        }else if(clipDir=="z-axis"){
-         localPlane = new THREE.Plane(new THREE.Vector3(0,0,eje),offset); 
-        }
-                matrix = new THREE.Matrix4().makeRotationZ(Math.PI / 2);
-                localPlane.normal.applyMatrix4(matrix);
-                localPlanes.push(localPlane);
-                this.el.addEventListener('model-loaded', (e) => {
-                    const object = e.detail.model;
-                    object.traverse(function (node){
-                        if (node.isMesh && localPlane){
-                       let meshMaterial = node.material.clone();
-                        meshMaterial.clipping=true;
-	                      meshMaterial.clippingPlanes= [ localPlane ];
-                              meshMaterial.clipShadows = true;
-                                meshMaterial.side = THREE.DoubleSide;
-                            node.material = meshMaterial;
-                            node.castShadow = true;
-                        }//fin node is mesh
-                    })//fin function node
-                });//fin eventListener
-				renderer.localClippingEnabled = true;
-    },//fin init function
-});
+      let meshMaterial;
+      let object;
+      const ren=document.querySelector("a-scene").renderer;
 
-AFRAME.registerComponent('mi_ccplane',{
-        schema: {
-        Direction: { type: 'string', default: 'x-axis' }
+          localPlane = new THREE.Plane(new THREE.Vector3(0,1,0),0);
+          matrix = new THREE.Matrix4().makeRotationZ(Math.PI / 2);
+          localPlane.normal.applyMatrix4(matrix);
+          localPlanes.push(localPlane);
+          this.el.addEventListener('model-loaded', (e) =>{
+            object = e.detail.model;
+            object.traverse(function (node){
+              if (node.isMesh && localPlane){
+              meshMaterial = node.material.clone();
+              meshMaterial.clipping=true;
+              meshMaterial.clippingPlanes= [localPlane ];
+              meshMaterial.clipShadows = true;
+              meshMaterial.side = THREE.DoubleSide;
+              node.material = meshMaterial;
+              node.castShadow = true;
+              }//fin node is mesh
+            })//fin function node
+         });//fin event listener
+          ren.localClippingEnabled = false;
     },
-  init:function(){
-    const clipDir = this.el.getAttribute("mi_ccplane").Direction;
-    let pnormal,pcoplanar,clippingPlane;
-     if(clipDir=="x-axis"){
-        pnormal = new THREE.Vector3(0,1,0);
-       if(eje>0){
-          offset=offset*-1;
-          }
-    pcoplanar = new THREE.Vector3(0,offset,0);
-        }else if(clipDir=="y-axis"){
-         pnormal = new THREE.Vector3(1,0,0); 
-                 if(eje<0){
-          offset=offset*-1;
-          }
-    pcoplanar = new THREE.Vector3(offset,0,0);
-        }else if(clipDir=="z-axis"){
-         pnormal = new THREE.Vector3(0,0,1); 
-                 if(eje>0){
-          offset=offset*-1;
-          }
-    pcoplanar = new THREE.Vector3(0,0,offset);
-        }
-    clippingPlane = new THREE.Plane(new THREE.Vector3(0,eje,0),offset); 
-    clippingPlane.setFromNormalAndCoplanarPoint(pnormal,pcoplanar);
-    const planeHelper = new THREE.PlaneHelper(clippingPlane, 10, 0xff00ff); 
-    this.el.object3D.add(planeHelper);
+  update:function(){
+    let render=document.querySelector("a-scene");
+ console.log("update on");
+    if(this.data.Dir=='no-axis')
+      {
+       render.renderer.localClippingEnabled = false; 
+      }else if(this.data.Dir=='axis'){
+       render.renderer.localClippingEnabled = true; 
+      }
+ this.el.setAttribute('Dir', this.data.dir);
   }
 });
 
+document.getElementById('boton1').addEventListener('click', function() {
+  console.log("boton click");
+  const entidad = document.getElementById('modelo3d');
+  entidad.setAttribute('ccplane', 'Dir', 'no-axis' );
+});
 
-
-
-
-
-
-
-
+document.getElementById('boton2').addEventListener('click', function() {
+  console.log("boton click");
+  const entidad = document.getElementById('modelo3d');
+  entidad.setAttribute('ccplane', 'Dir', 'axis' );
+});
