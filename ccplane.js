@@ -12,7 +12,7 @@ AFRAME.registerComponent('ccplane', {
       let object;
       const ren=document.querySelector("a-scene").renderer;
 
-          localPlane = new THREE.Plane(new THREE.Vector3(-1,0,0),0.5);
+          localPlane = new THREE.Plane(new THREE.Vector3(0,-1,0),0.5);
           matrix = new THREE.Matrix4().makeRotationZ(Math.PI / 2);
           localPlane.normal.applyMatrix4(matrix);
           localPlanes.push(localPlane);
@@ -56,4 +56,5 @@ document.getElementById('boton2').addEventListener('click', function() {
   const entidad = document.getElementById('modelo3d');
   entidad.setAttribute('ccplane', 'Dir', 'axis' );
 });
+
 
